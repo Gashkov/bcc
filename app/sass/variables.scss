@@ -1,0 +1,11 @@
+$purple: #80d0ec;
+
+// mixins
+
+@mixin box-shadow {
+	box-shadow: 1px 5px 12px 0px rgba(186, 184, 186, 0.45);
+}
+
+@mixin border-radius {
+	border-radius: 6px;
+}

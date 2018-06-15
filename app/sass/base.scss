@@ -1,0 +1,44 @@
+body {
+	background: #fff;
+	color: #5e5e5e;
+	font-family: "Arial", sans-serif;
+	font-size: 16px;
+}
+
+body * {
+	box-sizing: border-box;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+	transition: .3s;
+
+	&:focus,
+	&:active, {
+		text-decoration: none;
+	}
+
+	&:hover {
+		transition: .3s;
+	}
+}
+
+button,
+input[type=submit] {
+	cursor: pointer;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+
+

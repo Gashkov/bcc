@@ -1,0 +1,184 @@
+@import 'variables.scss';
+@import 'base.scss';
+
+.wrapper {
+	max-width: 992px;
+	margin: 40px auto;
+	min-height: calc(100vh - 80px);
+	padding: 60px 15px 25px 15px;
+	background: #e9edef;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	@include border-radius;
+	@include box-shadow;
+}
+
+//price
+
+.price {
+	margin: 0 0 40px;
+
+	&__item {
+		background: #fff;
+		cursor: pointer;
+		text-align: center;
+		flex-basis: 300px;
+		margin: 0 10px 40px 10px;
+		transition: .5s;
+		padding: 0 15px;
+		@include border-radius;
+		@include box-shadow;
+
+		&:hover {
+			transform: scale(1.1);
+			transition: .5s;
+
+			span {
+				color: #25a3cf;
+				transition: .5s;
+			}
+
+			h3 {
+				background: #25a3cf;
+				transition: .5s;
+			}
+
+			+ .chart .chart__field-active {
+				width: 100%;
+			} 
+		}
+
+		&_first {
+
+			&:hover ~ .price__item + .chart .chart__field-active {
+				width: 10%;
+			}
+		}
+
+		&_second {
+
+			&:hover ~ .price__item + .chart .chart__field-active {
+
+				&_first {
+					width: 50%;
+				}
+
+				&_second {
+					width: 70%;
+				}
+
+				&_third {
+					width: 30%;
+				}
+				
+			}
+		}
+
+		&_last {
+
+			&:hover + .chart .chart__field-active {
+				width: 100%;
+			} 
+		}
+
+		span {
+			display: block;
+			transition: .5s;
+		}
+	}
+
+	&__header {
+		background: $purple;
+		border-radius: 6px 6px 0 0;
+		color: #fff;
+		margin: 0 -15px 20px -15px;
+		padding: 20px 10px;
+		font-size: 26px;
+		transition: .5s;
+	}
+
+	&__item-price {
+		font-weight: bold;
+		font-size: 45px;
+	}
+
+	&__item-time {
+		font-size: 24px;
+	}
+
+	
+}
+
+// chart
+
+.chart {
+	background: #fff;
+	padding: 20px;
+	@include box-shadow;
+	width: 100%;
+
+	&__item {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__data-wrap {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+	}
+
+	&__data {
+		font-size: 24px;
+	}
+
+	&__field {
+		height: 14px;
+		@include border-radius;
+		background: #e9edef;
+		position: relative;
+
+		&-active {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			@include border-radius;
+			background-color: $purple;
+			width: 0;
+			transition: .5s;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.wrapper {
+		margin: 0;
+		padding: 20px 10px;
+		border-radius: 0;
+	}
+
+	.price {
+
+		&__item {
+			margin-bottom: 20px;
+		}
+	}
+
+	.chart {
+
+		&__data-wrap {
+			margin-bottom: 5px;
+		}
+
+		span {
+			font-size: 18px;
+		}
+	}
+}
